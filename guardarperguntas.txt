@@ -1,0 +1,2 @@
+qual a idade do professor?, 21, 23, 156, 48, d
+

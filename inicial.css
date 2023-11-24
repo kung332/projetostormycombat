@@ -1,0 +1,232 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+  
+
+  *{
+    text-decoration: none;
+    
+   
+  }
+
+
+ 
+
+body{
+    background-color: #ffffff00;
+    background-image: url("./img/background-inicial.jpg");
+    margin: 8px; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+  
+.logo{
+    width:500px;
+    align-items: center;
+    margin-left: 710px;
+
+}
+
+
+
+.container{
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5px;
+
+}
+
+.card{
+    background: #ffffff83;
+    padding: 30px;
+    border-radius: 4% ;
+    box-shadow: 3px 3px 1px 0px #000000;
+    height: 220px;
+    
+}
+
+
+
+
+
+#btn{
+    display: flex;
+    position: relative;
+    font-family: Russo One;
+    font-size: 30px;
+    width: 150px;
+    height: 55px;
+    border-radius: 7px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center; 
+    
+    
+
+}
+
+#btn::before{
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(#ff0000, #a205eb, #05e3eb ) ;
+    animation: efeito 1.3s ease infinite ;
+    transition: 1s ease;
+
+}
+
+@keyframes efeito {
+    100% {
+        transform: rotate(360deg);
+
+    }                                                                  
+}
+
+.container:hover #btn::before{
+    background: hsl(303, 83%, 56%);   
+}
+
+#linka{
+    color: aliceblue;
+    position: absolute ;
+    z-index: 1;
+    display: block ;
+    width: 147px;
+    height: 52px;
+    background: #121212;
+    text-align: center;
+    line-height: 52px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 1px;
+
+
+}
+
+
+.btn2{
+    display: flex;
+    position: relative;
+    margin-top: 27px;
+    font-family: Russo One;
+    font-size: 30px;
+    width: 150px;
+    height: 55px;
+    border-radius: 7px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center; 
+    
+    
+
+}
+
+.btn2::before{
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(#ff0000, #a205eb, #05e3eb ) ;
+    animation: efeito 1.3s ease infinite ;
+    transition: 1s ease;
+
+}
+
+@keyframes efeito {
+    100% {
+        transform: rotate(360deg);
+
+    }                                                                  
+}
+
+.container:hover .btn2::before{
+    background: hsl(303, 83%, 56%);   
+}
+
+.linkb{
+    color: aliceblue;
+    position: absolute ;
+    z-index: 1;
+    display: block ;
+    width: 147px;
+    height: 52px;
+    background: #121212;
+    text-align: center;
+    line-height: 52px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 1px;
+
+
+}
+
+
+@keyframes efeito {
+    100% {
+        transform: rotate(360deg);
+
+    }                                                                  
+}
+
+.container:hover .btn3::before{
+    background: hsl(303, 83%, 56%);   
+}
+
+.linkc{
+    color: aliceblue;
+    position: absolute ;
+    z-index: 1;
+    display: block ;
+    width: 147px;
+    height: 52px;
+    background: #121212;
+    text-align: center;
+    line-height: 52px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 1px;
+
+
+}
+
+
+.btn3{
+    display: flex;
+    position: relative;
+    margin-top: 27px;
+    font-family: Russo One;
+    font-size: 30px;
+    width: 150px;
+    height: 55px;
+    border-radius: 7px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center; 
+    
+    
+
+}
+
+.btn3::before{
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: conic-gradient(#ff0000, #a205eb, #05e3eb ) ;
+    animation: efeito 1.3s ease infinite ;
+    transition: 1s ease;
+
+}
+
+
+
+
+
+

@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+  
+
+*{
+  text-decoration: none;
+  
+ 
+}
+
+body{
+  background-color: #ffffff00;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+justify-content: center;
+
+}
+
+.back-video{
+    position: absolute;
+    right: 0;
+    bottom:0;
+    z-index: -1;
+}
+
+#titulo{
+    font-family: Russo One;
+    font-size: 50px;
+    color: aliceblue;
+    text-align: center;
+    background-color: rgba(0, 255, 255, 0.089);
+    border-radius: 40px;
+    border: 1px;
+    border-style: solid;
+    width: 1000px;
+    height: 120px;
+
+}
+
+#titulo2{
+    margin-top: 2px;
+    text-shadow: 
+               -2px -3px 0px #00ff00, 
+               -2px 4px 0px #01ffff;                   
+        
+}
+
+#lista{
+    display: flex;
+    justify-content: center;
+    font-family: Russo One;
+    font-size: 30px;
+    color: aliceblue;
+    text-align: center;
+    margin-top: 40px;
+    background-color: rgba(0, 255, 255, 0.089);
+    border-radius: 40px;
+    border: 1px;
+    border-style: solid;
+    width: 50vw;
+    height: 80vh
+
+}
+
+#formulario {
+    display: inline-block;
+    text-align: left;
+    margin-top: 150PX;
+    font-family: Russo One;
+    color: aliceblue;
+}
+
+#formulario > .txt {
+    display: flex;
+    font-size: 20px;
+    font-family: Russo One;
+    margin-bottom: 8px;
+}
+
+#escreve-pergunta{
+    width: 500px;
+    height: 100px;
+    text-align:justify;
+    font-size: 20px;
+    padding: 8px;
+    font-family: Russo One;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+}
+
+
+
+#questao-a{
+    width: 500px;
+    padding: 8px;
+    font-family: Russo One;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+}
+
+#questao-a:hover{
+    width: 500px;
+    padding: 8px;
+    background-color: #82fff9b9;
+    font-family: Russo One;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+}
+
+
+#questao-b{
+    width: 500px;
+    padding: 8px;
+    font-family: Russo One;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+}
+
+#questao-b:hover{
+    width: 500px;
+    padding: 8px;
+    background-color: #82aaffb9;
+    font-family: Russo One;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+}
+
+
+#questao-c{
+    width: 500px;
+    padding: 8px;
+    font-family: Russo One;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+}
+
+#questao-c:hover{
+    width: 500px;
+    padding: 8px;
+    background-color: #a382ffb9;
+    font-family: Russo One;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+}
+
+#questao-d{
+    width: 500px;
+    padding: 8px;
+    font-family: Russo One;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+}
+
+#questao-d:hover{
+    width: 500px;
+    padding: 8px;
+    background-color: #fb82ffb9;
+    font-family: Russo One;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+}
+
+
+button {
+    margin-left: 330px;
+    padding: 10px;
+    background-color: #4caf50;
+    font-family: Russo One;
+    color: white;
+    font-size: 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 115px;
+    height: 50px;
+}
+
+button:hover {
+    background-color: #4e2fff;
+}
+
+#alternativa-crr{
+
+    width: 70px;
+    height: 40px;
+    text-align: center;
+}

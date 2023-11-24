@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passa ou Repassa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+
+</head>
+
+<body>
+
+
+
+    <video autoplay loop muted palys-inline class="back-video">
+        <source src="video/fundo roxo.mp4" type="video/mp4">
+
+    </video>
+
+    
+
+    <div class="container">
+
+
+
+        <div class="div-1">
+            <div class="score-box">
+                <span class="score1">0</span>
+              </div>
+
+              <div class="checkbox">
+                <input type="checkbox" id="chk1" class="checkbox" name="chk">
+                <label for="chk1">
+                </label>
+              </div>
+              
+               
+            <input type="text" id="texto-editavel-1" value="">
+
+        </div>
+
+        
+
+        <div class="div-2">
+
+            <div id="logojogo">
+                <img src="./img/logoestilolinear.png" alt="" width="700px">
+    
+            </div>
+
+            <div id="container1">
+                <div id="countdown">03:00</div>
+                <button class="button" id="startButton">Iniciar</button>
+                <button onclick="resetarCronometro()" class="button" type="reset" id="stopButton">Resetar</button>
+            </div>
+
+
+            <script>
+        
+            
+                function resetarCronometro() {
+                    clearInterval(timer);
+                    secondsRemaining = 180; // Defina o tempo inicial em segundos
+                    updateDisplay(); // Atualiza o display para mostrar o tempo inicial
+                }
+            
+                // Adiciona um ouvinte de evento para o botão "Resetar"
+                stopButton.addEventListener("click", resetarCronometro);
+            
+        
+            </script>
+        
+            <script>
+                let timer;
+                let secondsRemaining = 180; // 3 minutos em segundos
+                const countdownDisplay = document.getElementById("countdown");
+                const startButton = document.getElementById("startButton");
+                const stopButton = document.getElementById("stopButton");
+        
+                function startCountdown() {
+                    timer = setInterval(function () {
+                        if (secondsRemaining <= 0) {
+                            clearInterval(timer);
+                        } else {
+                            secondsRemaining--;
+                            updateDisplay();
+                        }
+                    }, 1000);
+                }
+        
+                function stopCountdown() {
+                    clearInterval(timer);
+                }
+        
+                function updateDisplay() {
+                    const minutes = Math.floor(secondsRemaining / 60);
+                    const seconds = secondsRemaining % 60;
+                    countdownDisplay.textContent = `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+                }
+        
+                startButton.addEventListener("click", startCountdown);
+                stopButton.addEventListener("click", stopCountdown);
+        
+                updateDisplay();
+            </script>
+
+        
+             <div id="questions-container hide">
+                <div id="question"></div>
+                <div class="answers" id="answers">
+                         A( <div class="answerA" id="answerA" ></div>
+                         B( <div class="answerB" id="answerB" ></div>
+                         C( <div class="answerC" id="answerC" ></div>
+                         D( <div class="answerD" id="answerD" ></div>
+                </div>
+
+                <script>
+                    let linhas = [];
+                    let indicePergunta = 0;
+            
+                    function carregarCSV() {
+                        fetch('guardarperguntas.txt')
+                            .then(response => response.text())
+                            .then(data => {
+                                linhas = data.trim().split('\n').map(line => line.split(','));
+                                exibirPergunta();
+                            });
+                    }
+            
+                    function exibirPergunta() {
+                        if (indicePergunta < linhas.length) {
+                            const pergunta = linhas[indicePergunta][0];
+                            const alternativaA = linhas[indicePergunta][1];
+                            const alternativaB = linhas[indicePergunta][2];
+                            const alternativaC = linhas[indicePergunta][3];
+                            const alternativaD = linhas[indicePergunta][4];
+                            const respostaCorreta = linhas[indicePergunta][5];
+            
+                            document.getElementById('question').textContent = pergunta;
+                            document.getElementById('answerA').textContent = alternativaA;
+                            document.getElementById('answerB').textContent = alternativaB;
+                            document.getElementById('answerC').textContent = alternativaC;
+                            document.getElementById('answerD').textContent = alternativaD;
+            
+                            document.getElementById('resposta').textContent = `Resposta correta: ${respostaCorreta}`;
+            
+                            document.querySelectorAll('input[name="resposta"]').forEach(input => {
+                                input.checked = false;
+                            });
+                        } else {
+                            document.getElementById('pergunta').textContent = 'Fim do jogo';
+                            document.getElementById('alternativas').style.display = 'none';
+                            document.getElementById('avancar').style.display = 'none';
+                            document.getElementById('exibirResposta').style.display = 'none';
+                            document.getElementById('resposta').textContent = '';
+                        }
+                    }
+            
+                   /* function verificarResposta() {
+                        const respostaSelecionada = document.querySelector('input[name="resposta"]:checked');
+                        if (!respostaSelecionada) {
+                            alert('Por favor, selecione uma resposta.');
+                            return;
+                        }
+                    } */
+            
+                    function avancarPergunta() {
+                        indicePergunta++;
+                        exibirPergunta();
+                    }
+
+                    function voltarPergunta() {
+                        indicePergunta--;
+                        exibirPergunta();
+                    }
+            
+                    function exibirResposta() {
+                        const respostaCorreta = linhas[indicePergunta][5];
+                        alert(`Resposta correta: ${respostaCorreta}`);
+                    }
+            
+                    carregarCSV();
+
+
+                    // Adicione este código ao seu script JavaScript
+
+                    document.querySelectorAll('.answers div').forEach(answerDiv => {
+                    answerDiv.addEventListener('click', function () {
+                    // Remove a classe 'answer-selected' de todas as alternativas
+                     document.querySelectorAll('.answers div').forEach(div => {
+                    div.classList.remove('answer-selected');
+                     });
+
+                    // Adiciona a classe 'answer-selected' apenas à alternativa clicada
+                     this.classList.add('answer-selected');
+
+
+                     
+                        });
+                    });
+                    
+                    function revelarResposta() {
+    const respostaCorreta = linhas[indicePergunta][5];
+    const respostaSelecionada = document.querySelector('.answers .answer-selected');
+
+    // Destaca a resposta correta em verde
+    document.getElementById(`answer${respostaCorreta}`).classList.add('answer-correct');
+
+    // Destaca as respostas erradas em cinza
+    document.querySelectorAll('.answers div').forEach(div => {
+        const alternativa = div.id.replace('answer', '');
+        if (alternativa !== respostaCorreta) {
+            div.classList.add('answer-incorrect');
+        }
+    });
+
+    // Se a resposta selecionada for incorreta, destaca em vermelho
+    if (respostaSelecionada && respostaSelecionada.id !== `answer${respostaCorreta}`) {
+        respostaSelecionada.classList.add('answer-wrong');
+    }
+}
+
+function limparDestaqueRespostas() {
+    document.querySelectorAll('.answers div').forEach(div => {
+        div.classList.remove('answer-correct', 'answer-incorrect', 'answer-wrong');
+    });
+}
+
+
+                </script>
+
+                
+            
+
+
+                
+
+
+
+           </div>
+            <div class="voltar-seguir">
+                    <button onclick="voltarPergunta()" id="um" >
+                        &#8606; 
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </button>
+
+                    <button onclick="revelarResposta()" id="tres">
+                        REVELAR
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </button>        
+
+
+                    <button onclick="avancarPergunta(); limparDestaqueRespostas()" id="dois">
+                        &#8608;
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </button>
+
+            
+                 
+             
+
+    </div> 
+
+        
+
+        </div> 
+           
+
+
+    
+
+
+        <div class="div-3">
+            <div class="score-box">
+                <span class="score1">0</span>
+            </div>
+
+            <div class="checkbox2">
+                <input type="checkbox" id="chk2" class="checkbox2" name="chk2">
+                <label for="chk2">
+                </label>
+              </div>
+
+            <input type="text" id="texto-editavel-2" value="">
+
+
+            <div class="container-botao">
+
+                <div class="card">
+               
+                <div id="btn">
+                    <a href="basecriarperguntas.html" id="linka">+P</a>
+        
+                </div>
+        
+                <div type="reset" class="btn2">
+                    <a href="" class="linkb">RESET</a>
+        
+                </div>
+        
+                <div class="btn3">
+                    <a href="https://localhost/Passa-ou-Repassa/botaojogar.html" class="linkc">CATATAL</a>
+        
+                </div>
+            </div>
+            
+        </div>
+
+       
+
+    </div>
+
+
+     <script src="base.js"></script>
+    </body>
+     
+</html>
